@@ -24,7 +24,7 @@ window.addEventListener('load', function() {
     let result = {count: false, countUp: false, value: 0, speed: 1000, step: 1};
 
     countValue.innerHTML = cont.innerText;
-    countValue.innerHTML += JSON.stringify(result);
+    countValue.innerHTML += " " + JSON.stringify(result);
 
     txtSet.addEventListener('change', function() {
         // Comprobar "Set to"
@@ -58,7 +58,7 @@ window.addEventListener('load', function() {
             result.count = true;
             result.countUp = true;
             countValue.innerHTML = cont.innerText;
-            countValue.innerHTML += JSON.stringify(result);
+            countValue.innerHTML += " " + JSON.stringify(result);
 
         }, 1000);
 
@@ -79,7 +79,7 @@ window.addEventListener('load', function() {
             cont.innerHTML = contador.incrementar();
             result.countUp = true;
             countValue.innerHTML = cont.innerText;
-            countValue.innerHTML += JSON.stringify(result);
+            countValue.innerHTML += " " + JSON.stringify(result);
 
         }, 1000);
     })
@@ -99,7 +99,7 @@ window.addEventListener('load', function() {
             cont.innerHTML = contador.decrementar();
             result.countUp = false;
             countValue.innerHTML = cont.innerText;
-            countValue.innerHTML += JSON.stringify(result);
+            countValue.innerHTML += " " + JSON.stringify(result);
 
         }, 1000);
     })
@@ -107,7 +107,7 @@ window.addEventListener('load', function() {
     btnPause.addEventListener('click', function() {
         result.count = false;
         countValue.innerHTML = cont.innerText;
-        countValue.innerHTML += JSON.stringify(result);
+        countValue.innerHTML += " " + JSON.stringify(result);
         stopSecuence(interval);
     })
 

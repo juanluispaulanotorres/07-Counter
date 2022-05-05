@@ -10,31 +10,39 @@
     <script type="module" src="./script.js"></script>
 </head>
 <body>
-    <div id="container" class="col">
-        <h1 id="cont">0</h1>
-
-        <div id="setup" class="row">
-            <span>Setup</span>
-            <button class="col-1 btn btn-primary" id="start">start</button>
-            <button class="col-1 btn btn-primary" id="pause">pause</button>
-            <button class="col-1 btn btn-primary" id="reset">reset</button>
+    <div id="container" class="row">
+        <div id="setup" class="col">
+            <h1 id="cont">0</h1>
         </div>
 
-        <div id="count" class="row">
-            <span>Count</span>
-            <button class="col-1 btn btn-primary" id="up">count up</button>
-            <button class="col-2 btn btn-primary" id="down">count down</button>
+        <span>Setup</span>
+        <div id="setup" class="col">
+            <button class="btn btn-primary" id="start">start</button>
+            <button class="btn btn-primary" id="pause">pause</button>
+            <button class="btn btn-primary" id="reset">reset</button>
         </div>
 
+        <span>Count</span>
+        <div id="count" class="col">
+            <button class="btn btn-primary" id="up">count up</button>
+            <button class="btn btn-primary" id="down">count down</button>
+        </div>
+
+        <span>Set to</span>
         <div class="col-2">
-            <span>Set to</span>
             <input type="number" id="set" class="form-control">
         </div>
 
-        <div class="col-2">
-            <span>Step</span>
-            <input type="number" id="step" class="form-control">
-            <span id="valores"></span>
+        <span>Step</span>
+        <div class="col-12">
+            <div class="row">
+                <div class="col-2">
+                    <input type="number" id="step" class="form-control">
+                </div>
+                <div class="col" style="margin-top: 0.5%;">
+                    <span id="valores"></span>
+                </div>
+            </div>
         </div>
     </div>
 </body>
