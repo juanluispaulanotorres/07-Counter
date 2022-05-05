@@ -20,24 +20,30 @@ window.addEventListener('load', function() {
     let txtSet = this.document.getElementById("set");
     let txtStep = this.document.getElementById("step");
 
+    let countValue = document.getElementById("valores");
+    let result = {count: false, countUp: false, value: 0, speed: 1000, step: 1};
+
+    countValue.innerHTML = cont.innerText;
+    countValue.innerHTML += JSON.stringify(result);
 
     txtSet.addEventListener('change', function() {
         // Comprobar "Set to"
         if (txtSet.value == "") {
             contador.setCont(0);
-            cont.innerHTML = contador.getCont();
         } else {
             contador.setCont(parseInt(txtSet.value));
-            cont.innerHTML = contador.getCont();
         }
+        cont.innerHTML = contador.getCont();
+        result.value = contador.getCont();
     })
-
 
     txtStep.addEventListener('change', function() {
         contador.setStep(parseInt(txtStep.value));
     })
 
+    // Inicio
     btnStart.addEventListener('click', function() {
+
         interval = setInterval (function() {
 
             // Comprobar "Step"
@@ -45,9 +51,14 @@ window.addEventListener('load', function() {
                 contador.setStep(1);
             } else {
                 contador.setStep(parseInt(txtStep.value));
+                result.step = contador.getStep();
             }
 
             cont.innerHTML = contador.incrementar();
+            result.count = true;
+            result.countUp = true;
+            countValue.innerHTML = cont.innerText;
+            countValue.innerHTML += JSON.stringify(result);
 
         }, 1000);
 
@@ -62,12 +73,18 @@ window.addEventListener('load', function() {
                 contador.setStep(1);
             } else {
                 contador.setStep(parseInt(txtStep.value));
+                result.step = contador.getStep();
             }
 
             cont.innerHTML = contador.incrementar();
+            result.countUp = true;
+            countValue.innerHTML = cont.innerText;
+            countValue.innerHTML += JSON.stringify(result);
+
         }, 1000);
     })
 
+    // Cuenta atrás
     btnDown.addEventListener("click", function() {
         stopSecuence(interval);
         interval = setInterval ( function() {
@@ -76,13 +93,21 @@ window.addEventListener('load', function() {
                 contador.setStep(1);
             } else {
                 contador.setStep(parseInt(txtStep.value));
+                result.step = contador.getStep();
             }
 
             cont.innerHTML = contador.decrementar();
+            result.countUp = false;
+            countValue.innerHTML = cont.innerText;
+            countValue.innerHTML += JSON.stringify(result);
+
         }, 1000);
     })
 
-    btnPause.addEventListener('click', function() {      
+    btnPause.addEventListener('click', function() {
+        result.count = false;
+        countValue.innerHTML = cont.innerText;
+        countValue.innerHTML += JSON.stringify(result);
         stopSecuence(interval);
     })
 
